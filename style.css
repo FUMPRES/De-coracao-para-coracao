@@ -1,0 +1,286 @@
+/* =========================================================================
+   CORES E VARIÁVEIS
+   ========================================================================= */
+:root {
+     --primary-color: #0056b3;     /* Azul Forte Institucional (FUMPRES) */
+     --yellow-highlight: #ffc107;  /* Amarelo para destaque */
+     --success-color: #28a745;     /* Verde para o botão confirma */
+     --text-dark: #212529;         /* Cor escura para nitidez */
+     --border-color: #dee2e6;      /* Borda padrão clara */
+     --card-background: #ffffffd2;   /* Branco puro para cards */
+     --background-light: #f1f1f1e3;  /* Fundo cinza claro */
+}
+
+/* =========================================================================
+   ESTILOS GERAIS E FUNDO
+   ========================================================================= */
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    box-sizing: border-box;
+    position: relative; 
+    overflow-x: hidden; 
+    background-color: var(--background-light); /* Cor de fundo para as partes que a imagem não cobrir */
+}
+
+/* 1. IMAGEM DE FUNDO: CENTRALIZADA E TRANSPARENTE */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Usando o nome de arquivo fornecido e transparência */
+    background-image: url('https://i.postimg.cc/ryQgsmmY/fundo-coracao.png'); 
+    background-size: cover;        
+    background-position: center center;   
+    background-repeat: no-repeat;  
+    opacity: 0.15; /* 15% de opacidade */
+    z-index: -1;
+    pointer-events: none; /* Não atrapalha a interação */ 
+}
+
+/* 2. TARJAS AZUIS: Superior e Inferior */
+
+/* Tarja Superior (Usando ::after para a tarja superior) */
+body::after { 
+    content: '';
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px; 
+    background-color: var(--primary-color);
+    z-index: 5;
+}
+
+/* Tarja Inferior (Precisa de um elemento no HTML: veja item 3) */
+.footer-tarja { 
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30px; 
+    background-color: var(--primary-color);
+    z-index: 5;
+}
+
+/* header::before {
+    content: '';
+    position: absolute; 
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px; 
+    background-color: var(--primary-color);
+    z-index: 5;
+}
+*/
+
+/* CONTAINER PRINCIPAL: Centraliza o Conteúdo e tarjas laterais (efeito) */
+.container {
+    max-width: 950px; 
+    margin: 30px auto; 
+    padding: 30px 50px; /* Aumentado padding lateral para o efeito de tarja */
+    background-color: var(--card-background); 
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+    z-index: 10; 
+    position: relative;
+}
+
+/* =========================================================================
+   HEADER E TÍTULOS
+   ========================================================================= */
+header {
+    margin-bottom: 30px;
+    padding: 15px 40px 15px; 
+    margin: -30px -50px 30px; 
+    background-color: rgba(255, 255, 255, 0.95); /* Quase opaco para nitidez */
+    border-bottom: 3px solid var(--primary-color); 
+    border-radius: 8px 8px 0 0; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+    text-align: left;
+    position: relative; 
+    z-index: 10;
+}
+
+.top-tarja { /* Nova classe para a tarja superior fixa */
+    content: '';
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px; 
+    background-color: var(--primary-color);
+    z-index: 5;
+}
+
+/* Centraliza os títulos */
+.title-container {
+    text-align: center; 
+    margin: 20px 0 10px; 
+}
+
+/* FUMPRES (Azul) */
+.fumpres-highlight-header {
+    color: var(--primary-color); 
+    font-size: 1.1em; 
+    font-weight: 700;
+    display: block;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* "PARTICIPE" (Amarelo, mesmo tamanho de h1) */
+.participe {
+    color: var(--yellow-highlight); 
+    font-size: 2.2em; 
+    font-weight: 800;
+    display: block;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+/* "De Coração para Coração" (Azul, mesmo tamanho) */
+.main-title {
+    color: var(--primary-color); 
+    font-size: 2.2em; 
+    font-weight: 800; /* negrito */
+    margin: 0;
+    line-height: 1.1;
+    display: inline-block;
+}
+
+/* Nitidez do texto "Um Gesto de Amor..." (Cor escura) */
+.description {
+    text-align: center;
+    color: var(--text-dark); /* Cor escura para nitidez */
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border-color);
+}
+
+.rules-list {
+    max-width: 650px; 
+    margin: 20px auto; 
+    text-align: left;
+    /*padding-left: 20px;*/
+    border: 1px dashed var(--primary-color);
+    padding: 15px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.rules-list p {
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-align: center; 
+}
+
+.rules-list ul {
+    list-style-type: none; 
+    padding-left: 0;
+    margin: 0;
+}
+
+.rules-list li {
+    margin-bottom: 8px;
+    padding-left: 25px;
+    text-indent: -15px;
+    line-height: 1.4; 
+    text-align: left;
+    position: relative;
+}
+
+.rules-list li:before {
+    content: "✔"; 
+    color: var(--success-color);
+    font-weight: bold;
+    font-size: 1.1em;
+    position: absolute;
+    left: -1.0;
+    top: 0;
+}
+
+/* =========================================================================
+   LISTA E FORMULÁRIO (Manutenção da Centralização e Alinhamento)
+   ========================================================================= */
+
+/* Lista de idosos (Centralizada) */
+.idosos-grid {
+    max-width: 800px;
+    margin: 20px auto 30px; 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 15px;
+}
+
+/* Dados do Doador (Organizados e Alinhados à Esquerda) */
+.donor-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+    margin-top: 20px;
+    max-width: 400px; 
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+input[type="text"], input[type="email"], input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+/* Botão de Confirmar Escolhas (Verde) */
+#submit-button { 
+    background-color: var(--success-color); 
+    color: white; /* Corrigido para branco puro */
+    padding: 12px 25px;
+    border-radius: 4px;
+    font-size: 1.1em;
+    font-weight: 700;
+    width: 100%;
+    margin-top: 25px;
+    border: none;
+    cursor: pointer;
+    max-width: 400px; 
+}
+
+
+#submit-button:hover {
+    background-color: #1faa3f; 
+}
+
+/* =========================================================================
+   ESTILOS ADICIONAIS PARA O DOADOR
+   ========================================================================= */
+
+.sponsors-list {
+    display: block;
+    font-size: 0.9em;
+    color: var(--primary-color); /* Usa a cor azul para destacar o nome do doador */
+    margin-top: 5px;
+    padding-left: 20px; /* Recuo leve para alinhar com o checkbox */
+    font-weight: 500;
+}
+
+/* Garante que o STRONG (negrito) dentro de sponsors-list seja ainda mais destacado */
+.sponsors-list strong {
+    font-weight: 700;
+}
